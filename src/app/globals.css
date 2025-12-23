@@ -12,6 +12,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-background: #1C1C1E;
+  --color-foreground: #FFFFFF;
+  --color-primary: #00E5FF;
+  --color-secondary: #FF00FF;
+  --color-accent: #00FF99;
+  --color-section: #282828;
+
+  --font-heading: var(--font-bebas-neue), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -20,7 +32,22 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
